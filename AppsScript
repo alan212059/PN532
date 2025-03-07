@@ -1,0 +1,10 @@
+function doPost(e) {
+  const uid = e.parameter.uid;
+  const data = e.parameter.data;
+  
+  // Append to spreadsheet
+  const sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
+  sheet.appendRow([new Date(), uid, data]);
+  
+  return ContentService.createTextOutput("Success");
+}
